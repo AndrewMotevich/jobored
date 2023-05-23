@@ -1,6 +1,5 @@
 import Filters from "@/components/filters/Filters";
-import { CategoryDataType } from "@/models/categoryDataType";
-import SearchInput from "../components/textInut/SearchInput";
+import SearchInput from "../components/SearchInput/SearchInput";
 
 export default async function Home() {
   return (
