@@ -1,7 +1,12 @@
-export default function Home() {
+import Filters from "@/components/filters/Filters";
+import { CategoryDataType } from "@/models/categoryDataType";
+import SearchInput from "../components/textInut/SearchInput";
+
+export default async function Home() {
   return (
-    <main style={{ color: "#5E96FC", fontSize: "16px", fontWeight: "500" }}>
-      Main page
-    </main>
+    <>
+      <SearchInput />
+      <Filters />
+    </>
   );
 }

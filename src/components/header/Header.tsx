@@ -1,9 +1,15 @@
+"use client";
+import Link from "next/link";
 import React from "react";
 
 const Header = () => {
   return (
-    <header style={{ color: "#5E96FC", fontSize: "16px", fontWeight: "500" }}>
-      Поиск Вакансий
+    <header>
+      <h1>
+        <Link href="/">Jobored</Link>
+      </h1>
+      <Link href="/">Поиск вакансий</Link>
+      <Link href="/favorites">Избранное</Link>
     </header>
   );
 };

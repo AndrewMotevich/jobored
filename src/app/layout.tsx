@@ -1,10 +1,11 @@
 import Header from "@/components/header/Header";
 import "../sass/global.scss";
 import { Inter } from "next/font/google";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Jobored",
   description: "application to find job",
 };
@@ -14,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        {children}
+        <main className="main-container">{children}</main>
       </body>
     </html>
   );
