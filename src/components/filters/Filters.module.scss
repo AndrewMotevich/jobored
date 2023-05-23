@@ -1,13 +1,12 @@
 @import "../../sass/abstracts/variables";
 
 .filterContainer {
-  margin-top: 4rem;
-  margin-left: 16.2rem;
   width: 31rem;
   padding: 2rem;
   border-radius: 1.2rem;
   border: 1px solid $color-grey200;
   background-color: $color-white;
+  box-sizing: border-box;
 }
 
 .twoColLayout {

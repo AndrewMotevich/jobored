@@ -3,8 +3,65 @@ header {
   height: 8.4rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: #5e96fc;
   font-size: 16px;
   font-weight: 500;
   background-color: $color-white;
+}
+.header-container {
+  margin-left: 2rem;
+  max-width: 109.6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    width: 14rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.6rem;
+    @include respond-to("small") {
+      width: 10rem;
+      font-size: 1.6rem;
+      margin-left: 1rem;
+      margin-right: 3rem;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $color-black;
+    h3 {
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2rem;
+      @include respond-to("small") {
+        font-size: 1.2rem;
+      }
+    }
+    &:hover {
+      color: $color-blue500;
+    }
+  }
+  nav {
+    max-width: 69.6rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ul {
+      padding: 0;
+      max-width: 27.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+    }
+  }
+}
+.active {
+  color: $color-blue500;
 }

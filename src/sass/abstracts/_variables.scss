@@ -13,3 +13,9 @@ $color-grey300: rgba(213, 214, 220, 1);
 $color-grey500: rgba(172, 173, 185, 1);
 $color-grey600: rgba(123, 124, 136, 1);
 $color-black: rgba(35, 33, 52, 1);
+// breakpoints
+$breakpoints: (
+  "small": 560px,
+  "medium": 980px,
+  "large": 1200px,
+) !default;
