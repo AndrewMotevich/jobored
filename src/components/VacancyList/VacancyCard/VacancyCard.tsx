@@ -19,7 +19,7 @@ const VacancyCard = ({ elem }: { elem: VacancyDataType }) => {
               з/п{" "}
               {elem.payment_to !== 0
                 ? "от " + elem.payment_from + " " + elem.currency
-                : elem.payment_from + " " + elem.currency}{" "}
+                : "не указана"}{" "}
               {elem.payment_to !== 0 &&
                 "до " + elem.payment_to + " " + elem.currency}
             </h3>

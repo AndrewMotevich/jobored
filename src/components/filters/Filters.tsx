@@ -7,7 +7,7 @@ import { NumberInput } from "@mantine/core";
 import SelectCategory from "./SelectCategory/SelectCategory";
 import { FilterDataType } from "@/models/filterDataType";
 
-const Filters = () => {
+const Filters = (props: { callback: (value: FilterDataType) => void }) => {
   const form = useForm<FilterDataType>({
     initialValues: {
       catalogues: "",
@@ -23,7 +23,10 @@ const Filters = () => {
     <>
       <form
         className={styles.filterContainer}
-        onSubmit={form.onSubmit((values) => console.log(values))}
+        onSubmit={form.onSubmit((values, _event) => {
+          _event.preventDefault();
+          props.callback(values);
+        })}
         onReset={form.onReset}
       >
         <div className={styles.twoColLayout}>
