@@ -6,9 +6,15 @@ import styles from "../VacancyList.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import locationIcon from "../../../../public/icons/location.svg";
-import StarIcon from "../../../../public/icons/star";
+import StarIcon from "../StarIcon/Star";
 
-const VacancyCard = ({ elem }: { elem: VacancyDataType }) => {
+const VacancyCard = ({
+  elem,
+  clearCallback,
+}: {
+  elem: VacancyDataType;
+  clearCallback?: (id: number) => void;
+}) => {
   return (
     <Card className={styles.cardWrapper} radius={12} withBorder>
       <Link href={"http://localhost:3000/vacancy/" + elem.id}>
@@ -36,7 +42,11 @@ const VacancyCard = ({ elem }: { elem: VacancyDataType }) => {
             <p>{elem.town.title}</p>
           </div>
         </div>
-        <StarIcon id={elem.id} />
+        {clearCallback ? (
+          <StarIcon id={elem.id} clearCallback={clearCallback} />
+        ) : (
+          <StarIcon id={elem.id} />
+        )}
       </Link>
     </Card>
   );

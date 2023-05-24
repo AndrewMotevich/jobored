@@ -1,7 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const StarIcon = ({ id }: { id: number }) => {
+const StarIcon = ({
+  id,
+  clearCallback,
+}: {
+  id: number;
+  clearCallback?: (id: number) => void;
+}) => {
   const [check, setCheck] = useState(false);
 
   async function checkLocalStorage() {
@@ -28,6 +34,7 @@ const StarIcon = ({ id }: { id: number }) => {
     const index = savedFavorites.findIndex((elem) => elem === id);
     savedFavorites.splice(index, 1);
     localStorage.setItem("favorites", JSON.stringify([...savedFavorites]));
+    clearCallback && clearCallback(id);
   }
 
   useEffect(() => {
