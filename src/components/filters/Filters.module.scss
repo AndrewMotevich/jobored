@@ -9,7 +9,41 @@
   box-sizing: border-box;
 }
 
+.category {
+  margin-top: 3.2rem;
+}
+
+.payment {
+  margin-top: 2rem;
+}
+
 .twoColLayout {
   display: flex;
   justify-content: space-between;
+}
+
+.submitButton {
+  margin-top: 2rem;
+}
+
+.resetButton {
+  border: none;
+  background: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: $color-blue400;
+  span {
+    font-weight: 600;
+  }
+  &:disabled {
+    color: $color-grey500;
+  }
+  &:enabled {
+    &:hover {
+      cursor: pointer;
+      color: $color-blue500;
+    }
+  }
 }

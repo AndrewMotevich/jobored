@@ -1,7 +1,11 @@
 "use client";
 import { CategoryDataType } from "@/models/categoryDataType";
-import { Select, SelectItem } from "@mantine/core";
+import { MantineProvider, Select, SelectItem } from "@mantine/core";
+import { ChevronDown } from "tabler-icons-react";
+import { ChevronUp } from "tabler-icons-react";
 import React, { useEffect, useState } from "react";
+import { UseFormReturnType } from "@mantine/form";
+import { FilterDataType } from "@/models/filterDataType";
 
 export async function getData(baseUrl: string): Promise<CategoryDataType[]> {
   const res = await fetch(`${baseUrl}/api/category`, {
@@ -14,13 +18,16 @@ export async function getData(baseUrl: string): Promise<CategoryDataType[]> {
   return res.json();
 }
 
-const SelectCategory = () => {
+const SelectCategory = ({
+  form,
+}: {
+  form: UseFormReturnType<FilterDataType>;
+}) => {
   const [category, setCategory] = useState<SelectItem[]>([]);
-
   useEffect(() => {
     (async () => {
       await getData("http://localhost:3000").then((res) => {
-        setCategory(
+        return setCategory(
           res.map((elem): SelectItem => {
             return { value: elem.key.toString(), label: elem.title };
           })
@@ -29,7 +36,32 @@ const SelectCategory = () => {
     })();
   }, []);
 
-  return <Select placeholder="Pick one" data={category} />;
+  return (
+    <MantineProvider
+      inherit
+      theme={{
+        components: {
+          Select: {
+            styles: () => ({
+              wrapper: {
+                marginTop: "0.8rem",
+              },
+            }),
+          },
+        },
+      }}
+    >
+      <Select
+        size="xl"
+        radius={8}
+        className="select"
+        placeholder="Выберете отрасль"
+        data={category}
+        rightSection={<ChevronDown size="2rem" strokeWidth={1} />}
+        {...form.getInputProps("catalogues")}
+      />
+    </MantineProvider>
+  );
 };
 
 export default SelectCategory;

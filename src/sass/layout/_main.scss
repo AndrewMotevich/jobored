@@ -1,4 +1,14 @@
 .main-container {
   max-width: 144rem;
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.main-wrapper {
+  margin-top: 4rem;
+  max-width: 111.6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
