@@ -9,6 +9,8 @@ export async function GET(request: Request) {
   const payment_from = searchParams.get("payment_from");
   const payment_to = searchParams.get("payment_to");
   const catalogues = searchParams.get("catalogues");
+  const count = searchParams.get("count");
+  const page = searchParams.get("page");
 
   const response = await axios.get(
     "https://startup-summer-2023-proxy.onrender.com/2.0/vacancies/",
@@ -19,6 +21,8 @@ export async function GET(request: Request) {
         payment_from,
         payment_to,
         catalogues,
+        count,
+        page,
       },
       headers: {
         "x-secret-key": "GEU4nvd3rej*jeh.eqp",
