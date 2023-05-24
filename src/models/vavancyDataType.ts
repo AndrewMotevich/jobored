@@ -6,6 +6,7 @@ export type VacancyDataType = {
   firm_name: string;
   currency: string;
   vacancyRichText: string;
+  profession: string;
 
   type_of_work: {
     id: number;

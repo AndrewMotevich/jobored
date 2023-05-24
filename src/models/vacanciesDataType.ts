@@ -1,5 +1,7 @@
+import { VacancyDataType } from "./vavancyDataType";
+
 export type VacanciesDataType = {
-  objects: VacanciesDataType[];
+  objects: VacancyDataType[];
   total: number;
   more: boolean;
   subscription_id: 0;

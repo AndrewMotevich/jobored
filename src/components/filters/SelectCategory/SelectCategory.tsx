@@ -7,10 +7,8 @@ import React, { useEffect, useState } from "react";
 import { UseFormReturnType } from "@mantine/form";
 import { FilterDataType } from "@/models/filterDataType";
 
-export async function getData(baseUrl: string): Promise<CategoryDataType[]> {
-  const res = await fetch(`${baseUrl}/api/category`, {
-    next: { revalidate: 50 },
-  });
+async function getData(baseUrl: string): Promise<CategoryDataType[]> {
+  const res = await fetch(`${baseUrl}/api/category`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

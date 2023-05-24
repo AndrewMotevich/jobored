@@ -1,11 +1,11 @@
 import Filters from "@/components/Filters/Filters";
-import SearchInput from "../components/SearchInput/SearchInput";
+import VacancyList from "../components/VacancyList/VacancyList";
 
 export default async function Home() {
   return (
     <div className="main-wrapper">
       <Filters />
-      <SearchInput />
+      <VacancyList />
     </div>
   );
 }
