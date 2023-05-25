@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import styles from "./Star.module.scss";
 
 const StarIcon = ({
   id,
@@ -44,7 +45,9 @@ const StarIcon = ({
   }, []);
 
   return (
-    <div
+    <button
+      className={styles.starButton}
+      data-elem={`vacancy-${id}-shortlist-button`}
       onClick={async (event) => {
         event.preventDefault();
         if (check) {
@@ -68,7 +71,7 @@ const StarIcon = ({
           strokeWidth="1.5"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 

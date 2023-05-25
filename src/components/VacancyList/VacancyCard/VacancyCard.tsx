@@ -16,7 +16,12 @@ const VacancyCard = ({
   clearCallback?: (id: number) => void;
 }) => {
   return (
-    <Card className={styles.cardWrapper} radius={12} withBorder>
+    <Card
+      className={styles.cardWrapper}
+      radius={12}
+      withBorder
+      data-elem={`vacancy-${elem.id}`}
+    >
       <Link href={"http://localhost:3000/vacancy/" + elem.id}>
         <div>
           <h2>{elem.profession}</h2>

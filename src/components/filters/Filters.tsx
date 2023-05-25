@@ -58,12 +58,14 @@ const Filters = (props: { callback: (value: FilterDataType) => void }) => {
           }}
         >
           <NumberInput
+            data-elem={"salary-from-input"}
             size="xl"
             radius={8}
             placeholder="От"
             {...form.getInputProps("payment_from")}
           />
           <NumberInput
+            data-elem={"salary-to-input"}
             size="xl"
             radius={8}
             placeholder="До"

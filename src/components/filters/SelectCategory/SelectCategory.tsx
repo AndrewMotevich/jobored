@@ -50,6 +50,7 @@ const SelectCategory = ({
       }}
     >
       <Select
+        data-elem={"industry-select"}
         size="xl"
         radius={8}
         className="select"

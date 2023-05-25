@@ -22,6 +22,7 @@ const SearchInput = (props: { handler: (value: string) => void }) => {
       }}
     >
       <TextInput
+        data-elem={"search-input"}
         value={value}
         onChange={(event) => setValue(event.currentTarget.value)}
         size="xl"
@@ -30,6 +31,7 @@ const SearchInput = (props: { handler: (value: string) => void }) => {
         icon={<Search size={16} strokeWidth={2} color={"#ACADB9"} />}
         rightSection={
           <Button
+            data-elem={"search-button"}
             size="lg"
             radius={8}
             onClick={() => {
