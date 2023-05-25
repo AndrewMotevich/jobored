@@ -60,7 +60,7 @@ async function getData(props: {
   params: SearchParamsDataType;
 }): Promise<VacanciesDataType> {
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/`,
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/vacancies/`,
     {
       params: {
         keyword: props.params.keyword,

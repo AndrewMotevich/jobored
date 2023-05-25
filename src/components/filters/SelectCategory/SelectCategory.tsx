@@ -8,7 +8,9 @@ import { UseFormReturnType } from "@mantine/form";
 import { FilterDataType } from "@/models/filterDataType";
 
 async function getData(): Promise<CategoryDataType[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/category`);
+  const res = await fetch(
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/category`
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

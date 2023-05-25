@@ -5,17 +5,12 @@ import { useAsyncCallback } from "@/hooks/useAsyncCallback";
 import { VacancyDataType } from "@/models/vavancyDataType";
 import { Loader, Pagination } from "@mantine/core";
 import axios from "axios";
-import { Metadata } from "next";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Favorite",
-};
-
 async function getData(id: number): Promise<VacancyDataType> {
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/${id}`
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/vacancies/${id}`
   );
 
   if (res.status !== 200) {

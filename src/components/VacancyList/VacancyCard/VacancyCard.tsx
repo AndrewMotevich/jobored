@@ -22,7 +22,7 @@ const VacancyCard = ({
       withBorder
       data-elem={`vacancy-${elem.id}`}
     >
-      <Link href={"http://localhost:3000/vacancy/" + elem.id}>
+      <Link href={`/vacancy/` + elem.id}>
         <div>
           <h2>{elem.profession}</h2>
           <div className={styles.vacancyInfo}>
