@@ -1,0 +1,23 @@
+.vacancy-wrapper {
+  max-width: 77.3rem;
+  width: 100%;
+}
+.vacancy-info {
+  margin-top: 2rem;
+  margin-bottom: 5.1rem;
+  padding: 2.4rem;
+  background-color: $color-white;
+  border: 1px solid $color-grey200;
+  border-radius: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 140%;
+  color: $color-black;
+  b {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}

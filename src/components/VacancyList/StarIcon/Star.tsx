@@ -25,6 +25,7 @@ const StarIcon = ({
       localStorage.getItem("favorites") || "[]"
     ) as number[];
     localStorage.setItem("favorites", JSON.stringify([...savedFavorites, id]));
+    setCheck(true);
   }
 
   function deleteFromLocalStorage(id: number) {
@@ -35,6 +36,7 @@ const StarIcon = ({
     savedFavorites.splice(index, 1);
     localStorage.setItem("favorites", JSON.stringify([...savedFavorites]));
     clearCallback && clearCallback(id);
+    !clearCallback && setCheck(false);
   }
 
   useEffect(() => {
@@ -47,10 +49,8 @@ const StarIcon = ({
         event.preventDefault();
         if (check) {
           deleteFromLocalStorage(id);
-          setCheck(false);
         } else {
           writeToLocalStorage(id);
-          setCheck(true);
         }
       }}
     >

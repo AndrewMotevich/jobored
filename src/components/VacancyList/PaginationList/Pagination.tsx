@@ -39,7 +39,7 @@ const PaginationList = (props: SearchParamsDataType) => {
   return (
     <div className={styles.vacancyPaginationContainer}>
       {isLoading ? (
-        <Loader size="xl" />
+        <Loader style={{ marginTop: "4rem" }} size="xl" />
       ) : (
         vacancies.map((elem) => {
           return <VacancyCard key={elem.id} elem={elem} />;

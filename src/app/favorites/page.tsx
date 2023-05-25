@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Favorite",
 };
 
-async function getData(id: number = 35833432): Promise<VacancyDataType> {
+async function getData(id: number): Promise<VacancyDataType> {
   const res = await axios.get(`http://localhost:3000/api/vacancies/${id}`);
 
   if (res.status !== 200) {
@@ -44,7 +44,13 @@ const Favorites = () => {
         favoritesArray.length / 4 > 0 ? Math.ceil(favoritesArray.length / 4) : 1
       );
       const tempVacancies: VacancyDataType[] = [];
-      for (let i = (activePage - 1) * 4; i < (activePage - 1) * 4 + 4; i += 1) {
+      const lastPageItemQnt = favoritesArray.length % 4;
+      const startItem = (activePage - 1) * 4;
+      const endItem =
+        favoritesArray.length - startItem === lastPageItemQnt
+          ? favoritesArray.length
+          : startItem + 4;
+      for (let i = startItem; i < endItem; i += 1) {
         await getData(favoritesArray[i]).then(async (res) => {
           tempVacancies.push(res);
         });
@@ -54,7 +60,17 @@ const Favorites = () => {
   });
 
   function clearCallback(id: number) {
-    setVacancies(vacancies.filter((elem) => elem.id !== id));
+    if (vacancies.length === 1 && activePage !== 1) {
+      setVacancies(vacancies.filter((elem) => elem.id !== id));
+      setPage(activePage - 1);
+    }
+    if (vacancies.length === 1 && activePage === 1) {
+      (async () => {
+        await data();
+      })();
+    } else {
+      setVacancies(vacancies.filter((elem) => elem.id !== id));
+    }
   }
 
   useEffect(() => {
@@ -64,17 +80,16 @@ const Favorites = () => {
   }, [activePage]);
 
   return (
-    <div className={styles.vacancyPaginationContainer}>
+    <div
+      style={{ marginTop: "4rem" }}
+      className={styles.vacancyPaginationContainer}
+    >
       {isLoading ? (
         <Loader size="xl" />
       ) : (
-        vacancies.map((elem) => {
+        vacancies.map((elem, index) => {
           return (
-            <VacancyCard
-              key={elem.id}
-              elem={elem}
-              clearCallback={clearCallback}
-            />
+            <VacancyCard key={index} elem={elem} clearCallback={clearCallback} />
           );
         })
       )}
