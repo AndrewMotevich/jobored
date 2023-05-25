@@ -1,4 +1,4 @@
-// import Header from "@/components/Header/Header";
+import Header from "@/components/header/Header";
 import "../sass/global.scss";
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
