@@ -1,5 +1,5 @@
 "use client";
-import Filters from "@/components/Filters/Filters";
+// import Filters from "@/components/Filters/Filters";
 import VacancyList from "../components/VacancyList/VacancyList";
 import { FilterDataType } from "@/models/filterDataType";
 import { useState } from "react";
