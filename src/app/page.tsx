@@ -1,5 +1,5 @@
 "use client";
-import Filters from "@/components/Filters/Filters";
+import Filters from "@/components/filters/Filters";
 import VacancyList from "../components/VacancyList/VacancyList";
 import { FilterDataType } from "@/models/filterDataType";
 import { useState } from "react";
@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <div className="main-wrapper">
-      {/* <Filters callback={formCallback} /> */}
+      <Filters callback={formCallback} />
       <VacancyList
         payment_from={
           typeof formData?.payment_from === "number" ? formData?.payment_from : 0
