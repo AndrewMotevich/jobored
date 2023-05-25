@@ -1,8 +1,13 @@
 @import "../../sass/abstracts/variables";
+@import "../../sass/abstracts/mixins";
 
 .vacancyListContainer {
   max-width: 77.3rem;
   width: 100%;
+  @include respond-to("small") {
+    max-width: 31rem;
+    width: 100%;
+  }
 }
 
 .vacancyPaginationContainer {
