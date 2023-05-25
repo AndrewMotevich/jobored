@@ -59,16 +59,19 @@ async function getData(props: {
   page: number;
   params: SearchParamsDataType;
 }): Promise<VacanciesDataType> {
-  const res = await axios.get(`http://localhost:3000/api/vacancies/`, {
-    params: {
-      keyword: props.params.keyword,
-      payment_from: props.params.payment_from,
-      payment_to: props.params.payment_to,
-      catalogues: props.params.catalogues,
-      count: 4,
-      page: props.page,
-    },
-  });
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/`,
+    {
+      params: {
+        keyword: props.params.keyword,
+        payment_from: props.params.payment_from,
+        payment_to: props.params.payment_to,
+        catalogues: props.params.catalogues,
+        count: 4,
+        page: props.page,
+      },
+    }
+  );
 
   if (res.status !== 200) {
     throw new Error("Failed to fetch data");

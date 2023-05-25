@@ -10,7 +10,9 @@ type Props = {
 };
 
 async function getData(id: string): Promise<VacancyDataType> {
-  const res = await fetch(`http://localhost:3000/api/vacancies/${id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/${id}`
+  );
 
   if (res.status !== 200) {
     throw new Error("Failed to fetch data");

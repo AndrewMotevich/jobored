@@ -14,7 +14,9 @@ export const metadata: Metadata = {
 };
 
 async function getData(id: number): Promise<VacancyDataType> {
-  const res = await axios.get(`http://localhost:3000/api/vacancies/${id}`);
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/${id}`
+  );
 
   if (res.status !== 200) {
     throw new Error("Failed to fetch data");

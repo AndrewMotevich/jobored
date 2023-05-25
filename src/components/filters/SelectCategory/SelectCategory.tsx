@@ -7,8 +7,8 @@ import React, { useEffect, useState } from "react";
 import { UseFormReturnType } from "@mantine/form";
 import { FilterDataType } from "@/models/filterDataType";
 
-async function getData(baseUrl: string): Promise<CategoryDataType[]> {
-  const res = await fetch(`${baseUrl}/api/category`);
+async function getData(): Promise<CategoryDataType[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/category`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -24,7 +24,7 @@ const SelectCategory = ({
   const [category, setCategory] = useState<SelectItem[]>([]);
   useEffect(() => {
     (async () => {
-      await getData("http://localhost:3000").then((res) => {
+      await getData().then((res) => {
         return setCategory(
           res.map((elem): SelectItem => {
             return { value: elem.key.toString(), label: elem.title };
