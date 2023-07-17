@@ -11,7 +11,7 @@ type Props = {
 
 async function getData(id: string): Promise<VacancyDataType> {
   const res = await fetch(
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/vacancies/${id}`
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/vacancies/${id}`
   );
 
   if (res.status !== 200) {

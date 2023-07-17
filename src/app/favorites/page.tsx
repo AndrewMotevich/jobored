@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 async function getData(id: number): Promise<VacancyDataType> {
   const res = await axios.get(
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/vacancies/${id}`
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/vacancies/${id}`
   );
 
   if (res.status !== 200) {

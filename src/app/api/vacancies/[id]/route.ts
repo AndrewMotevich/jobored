@@ -8,12 +8,11 @@ export async function GET(
 ) {
   const id = params.id;
   const response = await axios.get(
-    `https://startup-summer-2023-proxy.onrender.com/2.0/vacancies/${id}`,
+    `https://api.superjob.ru/2.0/vacancies/${id}`,
     {
       headers: {
-        "x-secret-key": "GEU4nvd3rej*jeh.eqp",
         "X-Api-App-Id":
-          "v3.r.137440105.ffdbab114f92b821eac4e21f485343924a773131.06c3bdbb8446aeb91c35b80c42ff69eb9c457948",
+          "v3.r.137565094.06237d5925c53f20473fd5acae6464af94354a74.50660330abc2faa16c4a8b9340865c17d9d30f0c",
       },
     }
   );
